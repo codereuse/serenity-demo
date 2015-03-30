@@ -14,29 +14,29 @@ import java.util.stream.Collectors;
  */
 public class FindResultsPage extends PageObject {
 
-  private final static By findHeader = By.cssSelector("#main .findHeader");
-  private final static By resultsTable = By.cssSelector("#main table.findList");
-  private final static By searchResultTitles = By.cssSelector("#main table.findList td.result_text");
+    private final static By findHeader = By.cssSelector("#main .findHeader");
+    private final static By resultsTable = By.cssSelector("#main table.findList");
+    private final static By searchResultTitles = By.cssSelector("#main table.findList td.result_text");
 
-  public String getFindHeader() {
-    return find(findHeader).getTextValue();
-  }
+    public String getFindHeader() {
+        return find(findHeader).getTextValue();
+    }
 
-  public List<String> getResultsList() {
-            return find(resultsTable).thenFindAll(searchResultTitles).stream().map(FindResultsPage::convertElementToText).collect(Collectors.toList());
+    public List<String> getResultsList() {
+//        return find(resultsTable).thenFindAll(searchResultTitles).stream().map(FindResultsPage::convertElementToText).collect(Collectors.toList());
 
-//    List<String> results = new ArrayList<String>();
-//    waitForRenderedElementsToBePresent(resultsTable);
-//    List<WebElementFacade> resultTextElements = findAll(searchResultTitles);
-//
-//    for (WebElementFacade element : resultTextElements) {
-//      results.add(element.getTextValue());
-//    }
-//
-//    return results;
-  }
+        List<String> results = new ArrayList<String>();
+        waitForRenderedElementsToBePresent(resultsTable);
+        List<WebElementFacade> resultTextElements = findAll(searchResultTitles);
 
-  public static String convertElementToText(WebElementFacade element) {
-    return element.getTextValue();
-  }
+        for (WebElementFacade element : resultTextElements) {
+            results.add(element.getTextValue());
+        }
+
+        return results;
+    }
+
+    public static String convertElementToText(WebElementFacade element) {
+        return element.getTextValue();
+    }
 }
