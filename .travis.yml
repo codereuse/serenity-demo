@@ -14,4 +14,4 @@ addons:
   sauce_connect: true
 
 script:
-  - mvn clean verify
+  - mvn clean verify serenity:aggregate -Dsaucelabs.target.platform=MAC -Dwebdriver.driver=firefox -Dsaucelabs.driver.version=34 -Dsaucelabs.url=http://$SAUCE_USERNAME:$SAUCE_ACCESS_KEY@ondemand.saucelabs.com:80/wd/hub -Dsaucelabs.access.key=$SAUCE_ACCESS_KEY -Dsaucelabs.user.id=SAUCE_USERNAME
