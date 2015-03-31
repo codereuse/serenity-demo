@@ -5,5 +5,13 @@ jdk:
   - oraclejdk7
   - openjdk7
 
+env:
+  global:
+    - secure: S+YR6k9wyE4585suD+enfCr1lJ9yTYLlYdNlmHFvolCN3+zg2a5qdEFrda+mR8tDseUQYoXBUEvhRFdTZrdNYdMw6x+KsQm2AfadkyKZDP+ZGP+9X4bmCvIi40GQZhdAgGuSgaRiEwNT7eDkRMTya7i3rUzZRjKycxqm6Z584FU=
+    - secure: SpP/EEN1wwMpPYzo4JD2y9hZAyEH4I5aLVB8kLnjYg8NVMGbwQakQozCjEhO41sch0aDXr1PzDDjIbvT4Ux/CUKqNAhkMHrcu7HNqBuVijPNtpeUjKgbyZiB8xJaAO6yPogMuvN55Evgm1xPaH8sa9V9pMMvnulzRfovz/vbEsA=
+
+addons:
+  sauce_connect: true
+
 script:
   - mvn clean verify
