@@ -23,17 +23,7 @@ public class FindResultsPage extends PageObject {
     }
 
     public List<String> getResultsList() {
-//        return find(resultsTable).thenFindAll(searchResultTitles).stream().map(FindResultsPage::convertElementToText).collect(Collectors.toList());
-
-        List<String> results = new ArrayList<String>();
-        waitForRenderedElementsToBePresent(resultsTable);
-        List<WebElementFacade> resultTextElements = findAll(searchResultTitles);
-
-        for (WebElementFacade element : resultTextElements) {
-            results.add(element.getTextValue());
-        }
-
-        return results;
+        return find(resultsTable).thenFindAll(searchResultTitles).stream().map(FindResultsPage::convertElementToText).collect(Collectors.toList());
     }
 
     public static String convertElementToText(WebElementFacade element) {
