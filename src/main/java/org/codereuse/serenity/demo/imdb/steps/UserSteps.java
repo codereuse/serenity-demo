@@ -20,12 +20,12 @@ public class UserSteps extends ScenarioSteps {
 
     private List<String> searchResults = new ArrayList<String>();
 
-    @Step
+    @Step("Open IMDB website")
     public void opens_imdb_home_page() {
         homePage.openImdb();
     }
 
-    @Step
+    @Step("Search for '{0}' movie")
     public void searches_for_movie(String title) {
         homePage.searchForMovie(title);
         this.searchResults = findResultsPage.getResultsList();
@@ -37,12 +37,12 @@ public class UserSteps extends ScenarioSteps {
         ASSERT.that(searchHeader).contains(searchedTitle);
     }
 
-    @Step
+    @Step("Search should return {0} movie titles")
     public void should_see_number_of_titles_displayed(int expected) {
         ASSERT.that(searchResults.size()).isEqualTo(expected);
     }
 
-    @Step
+    @Step("Should see '{0}' in search results")
     public void should_see_in_search_results(String movieTitle) {
         ASSERT.that(searchResults).contains(movieTitle);
     }

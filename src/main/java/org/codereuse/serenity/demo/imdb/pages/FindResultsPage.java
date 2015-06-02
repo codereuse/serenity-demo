@@ -19,7 +19,7 @@ public class FindResultsPage extends PageObject {
     private final static By searchResultTitles = By.cssSelector("#main table.findList td.result_text");
 
     public String getFindHeader() {
-        return find(findHeader).getTextValue();
+        return find(findHeader).then().getTextValue();
     }
 
     public List<String> getResultsList() {
