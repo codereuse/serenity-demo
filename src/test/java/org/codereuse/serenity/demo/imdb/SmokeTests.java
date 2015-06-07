@@ -2,6 +2,7 @@ package org.codereuse.serenity.demo.imdb;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
+import net.thucydides.core.annotations.Screenshots;
 import net.thucydides.core.annotations.Steps;
 import org.codereuse.serenity.demo.imdb.steps.UserSteps;
 import org.junit.Test;
@@ -21,6 +22,7 @@ public class SmokeTests {
     UserSteps user;
 
     @Test
+    @Screenshots(afterEachStep = true)
     public void shouldBeAbleToSearchForMovie() {
         user.opens_imdb_home_page();
         user.searches_for_movie("Titanic");
