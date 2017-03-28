@@ -28,7 +28,7 @@ public class SmokeTests {
         user.opens_imdb_home_page();
         user.searches_for_movie("Titanic");
         user.search_header_should_contain("Titanic");
-        user.should_see_number_of_titles_displayed(10);
+        user.should_see_number_of_titles_displayed(2);
         user.should_see_in_search_results("Titanic (1997)");
     }
 

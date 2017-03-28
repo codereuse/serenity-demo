@@ -1,6 +1,6 @@
 package org.codereuse.serenity.demo.imdb.steps;
 
-import static org.truth0.Truth.ASSERT;
+import static com.google.common.truth.Truth.assertThat;
 
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
@@ -13,7 +13,8 @@ import java.util.List;
 /**
  * Created by Theo on 29/03/15.
  */
-public class UserSteps extends ScenarioSteps {
+public class
+UserSteps extends ScenarioSteps {
 
     HomePage homePage;
     FindResultsPage findResultsPage;
@@ -34,16 +35,16 @@ public class UserSteps extends ScenarioSteps {
     @Step
     public void search_header_should_contain(String searchedTitle) {
         String searchHeader = findResultsPage.getFindHeader();
-        ASSERT.that(searchHeader).contains(searchedTitle);
+        assertThat(searchHeader).contains(searchedTitle);
     }
 
     @Step("Search should return {0} movie titles")
     public void should_see_number_of_titles_displayed(int expected) {
-        ASSERT.that(searchResults.size()).isEqualTo(expected);
+        assertThat(searchResults.size()).isEqualTo(expected);
     }
 
     @Step("Should see '{0}' in search results")
     public void should_see_in_search_results(String movieTitle) {
-        ASSERT.that(searchResults).contains(movieTitle);
+        assertThat(searchResults).contains(movieTitle);
     }
 }
