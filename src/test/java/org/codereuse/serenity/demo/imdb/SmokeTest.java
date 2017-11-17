@@ -1,5 +1,6 @@
 package org.codereuse.serenity.demo.imdb;
 
+import io.qameta.allure.*;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Screenshots;
@@ -14,16 +15,21 @@ import org.openqa.selenium.WebDriver;
  * Created by Theo on 29/03/15.
  */
 @RunWith(SerenityRunner.class)
-public class SmokeTests {
+@Epic("Some epic example")
+@Feature("Some feature example")
+public class SmokeTest {
 
     @Managed
-    WebDriver driver;
+    public WebDriver driver;
 
     @Steps
-    UserSteps user;
+    public UserSteps user;
 
     @Test
+    @Story("Test for a specific story")
+    @Story("And it can even belong to a second story")
     @Screenshots(afterEachStep = true)
+    @Severity(SeverityLevel.NORMAL)
     public void shouldBeAbleToSearchForMovie() {
         user.opens_imdb_home_page();
         user.searches_for_movie("Titanic");
@@ -34,12 +40,14 @@ public class SmokeTests {
 
     @Test
     @Ignore
+    @Severity(SeverityLevel.MINOR)
     public void shouldBeIgnored(){
         //This method is intended to be empty as it is going to be ignored.
     }
 
     @Test
     @Screenshots(afterEachStep = true)
+    @Severity(SeverityLevel.BLOCKER)
     public void shouldFail(){
         user.opens_imdb_home_page();
         user.searches_for_movie("Titanic");

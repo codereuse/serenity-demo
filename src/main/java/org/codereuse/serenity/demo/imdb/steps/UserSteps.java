@@ -1,7 +1,5 @@
 package org.codereuse.serenity.demo.imdb.steps;
 
-import static com.google.common.truth.Truth.assertThat;
-
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.codereuse.serenity.demo.imdb.pages.FindResultsPage;
@@ -10,14 +8,16 @@ import org.codereuse.serenity.demo.imdb.pages.HomePage;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.google.common.truth.Truth.assertThat;
+
 /**
  * Created by Theo on 29/03/15.
  */
 public class
 UserSteps extends ScenarioSteps {
 
-    HomePage homePage;
-    FindResultsPage findResultsPage;
+    private HomePage homePage;
+    private FindResultsPage findResultsPage;
 
     private List<String> searchResults = new ArrayList<String>();
 
